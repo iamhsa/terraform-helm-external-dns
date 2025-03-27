@@ -73,8 +73,6 @@ Error: Error locating chart
 
 Unable to locate chart external-dns: invalid_reference: invalid tag
 ```
-```
-```
 
 ### Other informations
 
