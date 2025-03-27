@@ -16,9 +16,6 @@ Kubernetes version: v1.31.6
 
 ### Terraform Configuration Files
 ```hcl
-# Copy-paste your Terraform configurations here - for large Terraform configs,
-# please use a service like Dropbox and share a link to the ZIP file. For
-# security, you can also encrypt the files using our GPG public key.
 terraform {
   required_version = "1.11.2"
   required_providers {
@@ -51,10 +48,7 @@ resource "helm_release" "external-dns" {
 ### Debug Output
 <!--Please provider a link to a GitHub Gist containing the complete debug output: https://www.terraform.io/docs/internals/debugging.html. Please do NOT paste the debug output in the issue; just paste a link to the Gist. -->
 
-NOTE: In addition to Terraform debugging, please set HELM_DEBUG=1 to enable debugging info from helm.
-
-### Panic Output
-<!--If Terraform produced a panic, please provide a link to a GitHub Gist containing the output of the `crash.log`.-->
+See : https://github.com/iamhsa/terraform-helm-external-dns/blob/main/helm-provider-3.0.0.pre2/helm-provider-3.0.0.pre2.log
 
 ### Steps to Reproduce
 <!--Please list the steps required to reproduce the issue, for example:-->
@@ -82,15 +76,18 @@ Unable to locate chart external-dns: invalid_reference: invalid tag
 ```
 ```
 
-### Important Factoids
-<!--Are there anything atypical about your accounts that we should know? For example: Running in EC2 Classic? Custom version of OpenStack? Tight ACLs?-->
+### Other informations
+
 Terraform plan work like a charm with external-dns-chart-version <= 8.5.1 but failed with external-dns-chart-version >= 8.6.0.
+
 I am able to install any version of this chart whith `helm install external-dns bitnami/external-dns --version x.y.z`
+
+I note a similar behavior with provider version: v2.17.0 except that the plan works but apply failed.
+
 
 ### References
 <!--Are there any other GitHub issues (open or closed) or Pull Requests that should be linked here? For example:-->
 - Maybe related to #1596, as the error output say `invalid_reference: invalid tag`
-
 
 ### Community Note
 <!--- Please keep this note for the community --->
